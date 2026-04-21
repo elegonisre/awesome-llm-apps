@@ -81,8 +81,9 @@ if generate_code_btn and query:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": query}
                 ],
-                max_tokens=8000  # increased from 1 - original value was clearly a bug
+                # Increased token limit to allow for more complex visualizations;
+                # 16000 gives headroom for detailed 3D scenes without truncation
+                max_tokens=16000
             )
 
-        reasoning_content = deepseek_response.choices[0].message.reasoning_content
-        print("\nDeep
+        reasonin
